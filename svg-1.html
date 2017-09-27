@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #svg-wrapper{
+            width:150px;
+            height: 40px;
+            cursor: pointer;
+        }
+        #shape{
+            stroke: #009FFD;
+            stroke-width: 6px;
+            stroke-dasharray: 85 400;
+            stroke-dashoffset: -220;
+            transition: 1s all ease;
+            fill: transparent;
+        }
+        #svg-wrapper:hover #shape{
+            stroke-width: 4px;
+            stroke-dasharray: 50 0;
+            stroke-dashoffset: 0;
+            stroke: #06D6A0;
+        }
+        @keyframes wind {
+           from{transform: rotateY(60deg)}
+            to{transform: rotateY(0deg)}
+        }
+        #flower{
+            animation: swing 5s ease 0s infinite;
+        }
+        @keyframes swing{
+        20%{-webkit-transform:rotate(15deg);}
+        40%{-webkit-transform:rotate(-10deg);}
+        60%{-webkit-transform:rotate(5deg);}
+        80%{-webkit-transform:rotate(-5deg);}
+        100%{-webkit-transform:rotate(0);}
+        }
+
+        #object{
+            display: inline-block;
+            position: relative;
+            left: 0;
+            top:0;
+            width:300px;
+            height: auto;
+            animation: cloud 10s linear 2s infinite alternate;
+        }
+        @keyframes cloud {
+            0%{left:0}
+            25%{left: 75px;}
+            50%{left: 150px;}
+            75%{left: 225px;}
+            100%{left: 300px;}
+        }
+    </style>
+</head>
+
+<body>
+<!--<div id="svg-wrapper">-->
+    <!--<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="40" >-->
+        <!--<rect id="shape" width="150" height="40" />-->
+    <!--</svg>-->
+<!--</div>-->
+<!--<svg xmlns="http://www.w3.org/2000/svg" version="1.1">-->
+    <!--&lt;!&ndash;<path d="M10 10 H 90 V 90 H 10 L 10 10"/>&ndash;&gt;-->
+    <!--&lt;!&ndash; 利用Z命令，效果与上一句相同 &ndash;&gt;-->
+    <!--<path d="M10 10 H 90 V 90 H 10 Z"/>-->
+
+    <!--&lt;!&ndash; Points &ndash;&gt;-->
+    <!--<circle cx="10" cy="10" r="2" fill="red"/>-->
+    <!--<circle cx="90" cy="90" r="2" fill="red"/>-->
+    <!--<circle cx="90" cy="10" r="2" fill="red"/>-->
+    <!--<circle cx="10" cy="90" r="2" fill="red"/>-->
+<!--</svg>-->
+
+<!--用路径画五角星-->
+<div style="width: 100%;height: 900px;">
+    <div id="object">
+        <svg id="cloud" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <ellipse cx="100" cy="60" rx="30" ry="10" style="fill: blue"></ellipse>
+            <ellipse cx="135" cy="50" rx="45" ry="15" style="fill: blue;"></ellipse>
+            <ellipse cx="160" cy="65" rx="45" ry="15" style="fill: blue;"></ellipse>
+            <ellipse cx="130" cy="70" rx="55" ry="20" style="fill:blue;"></ellipse>
+        </svg>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <radialGradient id="sun" cx="50%" cy="50%" r="100%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color: rgb(255,0,0);stop-opacity: 1;"></stop>
+                <stop offset="100%" style="stop-color: rgb(255,255,0);stop-opacity: 1;"></stop>
+            </radialGradient>
+        </defs>
+    <circle cx="100" cy="100" r="40" fill="url('#sun')"></circle>
+    </svg>
+    <svg id="flower" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <circle cx="150" cy="40" r="25" fill="red"></circle>
+        <circle cx="175" cy="50" r="25" fill="red"></circle>
+        <circle cx="165" cy="75" r="25" fill="red"></circle>
+        <circle cx="140" cy="75" r="25" fill="red"></circle>
+        <circle cx="130" cy="55" r="25" fill="red"></circle>
+        <circle cx="150" cy="60" r="30" fill="yellow"></circle>
+        <path d="M150 90 V150" stroke="green"></path>
+        <ellipse cx="165" cy="120" rx="30" ry="10" fill="green" style="transform:rotate(-3deg);"></ellipse>
+        <ellipse cx="120" cy="120" rx="30" ry="10" fill="green"></ellipse>
+    </svg>
+    <div style="margin-top: -20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <rect x="125" y="0" width="55" height="20" style="fill: black;"></rect>
+        </svg>
+    </div>
+</div>
+
+
+</body>
+</html>
